@@ -32,7 +32,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:
 body.theme-satire .card{background:#fff;border:6px solid #111;box-shadow:10px 10px 0 #111}
 .lbl{font:700 40px var(--body);color:var(--muted)}
 .num{font-family:var(--num);font-weight:900}
-#logo{position:absolute;left:54px;top:52px;width:220px;opacity:.96}
+#logo,#logoW{position:absolute;left:54px;top:52px;width:220px;opacity:.96}
 #tags{position:absolute;right:54px;top:62px;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .tag{font:800 26px var(--body);letter-spacing:1.5px;padding:6px 14px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;border:2px solid rgba(255,255,255,.5)}
 .tag.sat{background:var(--red);border-color:var(--red)}
@@ -63,7 +63,7 @@ body.theme-satire #caps .box{background:#111}
 </head>
 <body>
 <div id="stage"><div id="bgdeco"></div><div id="scenes"></div>
-<img id="logo" src="assets/logo_white.png"><div id="tags"></div><div id="progress"></div>
+<img id="logo" src="assets/logo_white.png"><img id="logoW" src="assets/logo_white.png" style="display:none"><div id="tags"></div><div id="progress"></div>
 <div id="caps"></div><div id="flash"></div></div>
 <script>
 // ---------- helpers
@@ -179,7 +179,7 @@ S.map=(sc,root)=>{ // India states (official outline) or world countries
   const pins=(sc.pins||[]).map(pn=>{let x=pn.x,y=pn.y;if(proj&&pn.lon!==undefined){[x,y]=proj([pn.lon,pn.lat])}
     const c=el('div','abs',root,{left:(x-22)+'px',top:((sc.y||240)+y-22)+'px',width:'44px',height:'44px',borderRadius:'50%',background:'var(--red)',border:'6px solid #fff'});
     const l=el('div','abs',root,{left:(x+34)+'px',top:((sc.y||240)+y-34)+'px',font:'800 44px var(--body)',background:'rgba(0,0,0,.7)',padding:'2px 14px',borderRadius:'8px',color:'#fff'});l.textContent=pn.label||'';return {c,l}});
-  if(sc.title){const h=el('div','abs center disp',root,{top:'230px',fontSize:'68px',padding:'0 70px'});richWords(sc.title,h)}
+  if(sc.title){const h=el('div','abs center disp',root,{top:'230px',fontSize:'68px',padding:'0 70px',textShadow:'0 0 10px var(--bg),0 0 22px var(--bg),0 0 34px var(--bg)'});richWords(sc.title,h)}
   if(sc.credit!==false){const cr=el('div','abs',root,{right:'70px',top:'1200px',font:'500 24px var(--body)',color:'var(--muted)'});cr.textContent=(sc.region||'india')==='india'?'Map: SVG Maps (CC BY 4.0), boundaries as per India':'Map: Natural Earth'}
   return (t2,d)=>{const z=1+(sc.zoom||0.06)*E.inout(prog(t2,0,d));svg.style.transform=`scale(${z})`;svg.style.opacity=E.out(prog(t2,0,.3));
     paths.forEach(o=>{if(o.on){const pl=.5+.5*Math.sin(t2*4);o.p.style.opacity=.75+.25*pl}});
@@ -188,13 +188,13 @@ S.image=(sc,root)=>{ // still with Ken Burns
   const wrap=el('div','abs',root,{left:0,top:0,width:W+'px',height:H+'px',overflow:'hidden'});
   const im=el('img','',wrap,{position:'absolute',left:0,top:0,width:'100%',height:'100%',objectFit:'cover',transformOrigin:sc.origin||'50% 40%'});im.src=sc.src;
   if(sc.dim!==false)el('div','',wrap,{position:'absolute',inset:0,background:'linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0) 55%,rgba(0,0,0,.75) 85%)'});
-  let txt=null;if(sc.text){txt=el('div','abs center disp',root,{top:(sc.text_y||980)+'px',fontSize:(sc.size||84)+'px',padding:'0 70px',textShadow:'0 6px 24px rgba(0,0,0,.8)'});richWords(sc.text,txt)}
+  let txt=null;if(sc.text){txt=el('div','abs center disp',root,{top:(sc.text_y||980)+'px',fontSize:(sc.size||84)+'px',padding:'0 70px',color:'#fff',textShadow:'0 6px 24px rgba(0,0,0,.8)'});richWords(sc.text,txt)}
   const mv=sc.move||'in';
   return (t2,d)=>{const p=E.inout(prog(t2,0,d));let s=1,x=0;
     if(mv==='in')s=1.04+.12*p;else if(mv==='out')s=1.16-.12*p;else if(mv==='left'){s=1.15;x=40-80*p}else if(mv==='right'){s=1.15;x=-40+80*p}
     im.style.transform=`translateX(${x}px) scale(${s})`;wrap.style.opacity=E.out(prog(t2,0,.25));if(txt)enterStyle(txt,prog(t2,.2,.4),'up')}};
 S.video=(sc,root)=>{const v=el('video','abs',root,{left:0,top:0,width:W+'px',height:H+'px',objectFit:'cover'});v.src=sc.src;v.muted=true;v.preload='auto';
-  let txt=null;if(sc.text){txt=el('div','abs center disp',root,{top:(sc.text_y||980)+'px',fontSize:(sc.size||84)+'px',padding:'0 70px',textShadow:'0 6px 24px rgba(0,0,0,.8)'});richWords(sc.text,txt)}
+  let txt=null;if(sc.text){txt=el('div','abs center disp',root,{top:(sc.text_y||980)+'px',fontSize:(sc.size||84)+'px',padding:'0 70px',color:'#fff',textShadow:'0 6px 24px rgba(0,0,0,.8)'});richWords(sc.text,txt)}
   const f=(t2,d)=>{if(txt)enterStyle(txt,prog(t2,.2,.4),'up')};f.video=v;f.offset=sc.clip_start||0;f.rate=sc.rate||1;return f};
 S.quote=(sc,root)=>{ // document / source excerpt with animated highlighter
   const d0=el('div','abs doc',root,{left:'80px',right:'80px',top:(sc.y||330)+'px',transform:'rotate(-1.2deg)'});
@@ -250,6 +250,9 @@ window.renderAt=async function(t){
     s.fn(Math.max(0,lt),d);
     if(s.fn.video){const v=s.fn.video;const want=s.fn.offset+Math.max(0,lt)*s.fn.rate;if(Math.abs(v.currentTime-want)>0.001){await new Promise(r=>{v.onseeked=r;v.currentTime=Math.min(want,(v.duration||want)-0.05)})}}
     if(s.sc.flash&&lt<0.12)flash=Math.max(flash,1-lt/0.12)}
+  let cur=null;for(const s of scenes){if(t>=s.sc.start&&t<s.sc.end)cur=s.sc}
+  const dark=cur&&(cur.logo==='white'||(cur.logo!=='theme'&&['image','video'].includes(cur.type)));
+  document.getElementById('logo').style.display=dark?'none':'block';document.getElementById('logoW').style.display=dark?'block':'none';
   document.getElementById('flash').style.opacity=flash*0.55;
   document.getElementById('progress').style.width=(W*clamp(t/totalDur))+'px';
   // captions

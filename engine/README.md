@@ -35,6 +35,8 @@ voice. The first scene starts at 0; each scene ends where the next begins. `star
 Unmatched cues are reported in `_timing.txt` and spread evenly — fix them before QA. Make the last scene an
 `endcard` (`hold` seconds after the voice ends, default 2.2). Captions hide during the end card.
 
+**Logo.** The logo switches to white automatically on `image` and `video` scenes (all themes). Set `"logo": "white"` on any other scene with a dark full-bleed background, or `"logo": "theme"` to keep the theme's logo. Text on image and video scenes is always white with a shadow.
+
 **Common scene keys:** `sfx` (`whoosh swish click tick pop impact riser ding paper type pulse boing`, or a list),
 `sfx_at` (offset s), `source` (small "स्रोत: …" line), `badge` (top-left label, e.g. `ILLUSTRATIVE · AI-GENERATED`),
 `flash` (white flash on entry), `bg` (CSS background), `y` (fixed top instead of auto-centring).
