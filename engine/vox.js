@@ -125,8 +125,8 @@ S.screenshot = (sc, root) => {
   const rot = sc.rot ?? 1.2;
   return (t2, d) => {
     const pin = E.out(prog(t2, 0, .5));
-    let s = 1, tx = 0, ty = 0;
-    if (sc.zoom) { const z = sc.zoom; const pz = E.inout(prog(t2, z.at ?? .8, z.dur ?? 1)); const s1 = cw / (z.w * k); const fx0 = (z.x - c.x) * k, fy0 = (z.y - c.y) * k;
+    let s = 1, tx = 0, ty = 0, pz = 0;
+    if (sc.zoom) { const z = sc.zoom; pz = E.inout(prog(t2, z.at ?? .8, z.dur ?? 1)); const s1 = cw / (z.w * k); const fx0 = (z.x - c.x) * k, fy0 = (z.y - c.y) * k;
       s = lerp(1, s1, pz); tx = lerp(0, (cw / 2) - (fx0 + z.w * k / 2) * s1, pz); ty = lerp(0, (ch / 2) - (fy0 + (z.h || z.w * .3) * k / 2) * s1, pz); }
     const drift = 1 + .03 * prog(t2, 0, d);
     holder.style.transform = `translate(${tx}px,${ty + (1 - pin) * 260}px) rotate(${rot * (1 - pin * .6)}deg) scale(${s * drift})`;
@@ -134,7 +134,7 @@ S.screenshot = (sc, root) => {
     bg.style.transform = `translateY(${-30 * prog(t2, 0, d)}px)`;
     marks.forEach(({ m, h }) => { const p = E.inout(prog(t2, h.at ?? .9, h.dur ?? .5)); m.style.width = ((h.w * k + 12) * p) + 'px'; });
     fx.forEach(f => f(t2));
-    if (label) enterStyle(label, prog(t2, .2, .35), 'left'); if (cr) cr.style.opacity = E.out(prog(t2, .3, .3));
+    if (label) { enterStyle(label, prog(t2, .2, .35), 'left'); label.style.opacity = E.out(prog(t2, .2, .35)) * (1 - pz); } if (cr) cr.style.opacity = E.out(prog(t2, .3, .3));
   };
 };
 

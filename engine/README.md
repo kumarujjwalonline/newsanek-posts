@@ -71,3 +71,16 @@ the workflow). `qa.py` flags any non-endcard scene longer than 4.5 s.
 - `sfx/*.wav`: synthesised in code by `sfx/make_sfx.py` (original, no licence needed).
 - `music/<theme>.mp3`: optional instrumental beds (ElevenLabs Music, generated for News Anek). Record in ASSET LIBRARY.
 - `maps/`: India states (SVG Maps, CC BY 4.0, credit drawn on screen), world (Natural Earth, public domain).
+
+## Vox scenes (engine/vox.js, 2026-10-24)
+
+Real-imagery scene types. Paths in `src`, `basemap`, `basemaps[].src` resolve relative to the storyboard. Times inside a scene (`at`, `dur`) are seconds from the scene start. Any scene can take `transition`: `wipe-left | wipe-right | wipe-up | circle | diagonal | blinds` (`transition_dur`, default 0.45 s).
+
+- **photo**: `src`, `frame: full | print | sticker`, `move: in | out | left | right | up | down | {from:{x,y,s},to:{…}}`, `pos` (object-position), `treatment: bw | duo | muted`, `place` (red location tag), `text` (with `*highlight*`), `size`, `credit` (always), `marks` (hand-drawn circle `{x,y,rx,ry,at}`, `{type:'arrow',x1,y1,x2,y2}`, `{type:'label',x,y,text}`; fractions of the image box). print/sticker: `w`, `ratio`, `rot`, `tape`, `shape:'circle'`.
+- **screenshot**: `src` (2400×3000 microlink PNG), `img_w`/`img_h`, `crop {x,y,w,h}`, `highlights [{x,y,w,h,at,dur}]` (marker strokes, image px), `zoom {at,dur,x,y,w,h}` (camera push to a region), `marks`, `outlet`, `date` (credit is built from them). Never include an embedded press photo in the crop.
+- **collage**: `items [{src | text, kind: photo | note | stamp, x, y, w, ratio, rot, at, z, from: left|right, tape, caption, shape}]`, `title`, `credit`. Layers drift with parallax.
+- **mapcam**: satellite map with a camera. `basemap` (world equirectangular, e.g. `engine/maps/gibs_world_8192.jpg`) + `basemaps [{src, bbox:[lon0,lat0,lon1,lat1]}]` for sharper regional tiles; without them a flat Mercator vector map. `cam [{at, center:[lon,lat], zoom}]` (zoom 1 = world 2160 px wide; keep ≥1.8 so the map fills the frame), `highlight [{name, at, opacity, color, pulse}]` (Natural Earth country names), `routes [{points, at, dur, color, width, bend, dash, keep_head}]` (bend 0 for sea lanes through waypoints), `pins [{lon, lat, label, at, side, color}]`, `labels [{lon, lat, text, style: sea|big|country, at, until}]`, `title`, `credit`.
+- **paperhead**: kinetic headline on paper texture: `kicker`, `text` (array of lines), `sub`.
+
+Storyboard-level: `grain` (paper grain overlay, ~0.16), `texture` (background texture for all drawn scenes), `voice_fx: true` (broadcast EQ/compression on the voice), `voice_speed` (atempo; word timings are scaled to match).
+Assets and licences: `engine/fetch_assets.py` (see OPERATING_MANUAL stage D).

@@ -26,11 +26,15 @@ let words = [];
 if (sb.words) {
   const raw = JSON.parse(fs.readFileSync(rel(sb.words), 'utf8'));
   const list = Array.isArray(raw) ? raw : (raw.words || (raw.transcripts && raw.transcripts[0].words) || []);
-  words = list.filter(w => (w.type || 'word') === 'word' && !/^\[.*\]$/.test(w.text.trim()) && !/^[—–\-…।,.!?]+$/.test(w.text.trim()))
+  let inTag = false; // drop audio tags, including multi-word ones like "[energetic news anchor, punchy]"
+  const notTag = w => { const t = w.text.trim(); if (inTag) { if (/\]$/.test(t)) inTag = false; return false; } if (/^\[/.test(t)) { inTag = !/\]$/.test(t); return false; } return true; };
+  words = list.filter(w => (w.type || 'word') === 'word' && notTag(w) && !/^[—–\-…।,.!?]+$/.test(w.text.trim()))
               .map(w => ({ text: w.text.trim(), start: Number(w.start), end: Number(w.end) }));
 }
+const vsp = sb.voice_speed || 1; // atempo applied in the mix; word timings shrink to match
+words.forEach(w => { w.start /= vsp; w.end /= vsp; });
 const voicePath = sb.voice ? rel(sb.voice) : null;
-const voiceDur = voicePath ? probeDuration(voicePath) : (words.length ? words[words.length - 1].end : 10);
+const voiceDur = voicePath ? probeDuration(voicePath) / vsp : (words.length ? words[words.length - 1].end : 10);
 const speechEnd = words.length ? words[words.length - 1].end : voiceDur;
 
 // ---- resolve scene times from cues
@@ -127,7 +131,11 @@ sb.scenes.forEach(fixSrc);
   // ---- audio: voice + optional music bed (ducked) + SFX accents, loudness-normalised
   const inputs = [], filters = [], mix = [];
   let idx = 0;
-  if (voicePath) { inputs.push('-i', voicePath); filters.push(`[${idx}:a]aresample=48000,adelay=${Math.round(((sb.voice_offset || 0) - t0) * 1000)}|${Math.round(((sb.voice_offset || 0) - t0) * 1000)},apad[v]`); idx++; }
+  // voice_fx: true = broadcast chain (warmth + presence + gentle compression) for a fuller voice; or a custom ffmpeg filter string
+  const VOICE_FX = 'highpass=f=70,equalizer=f=140:t=q:w=1:g=4,equalizer=f=3200:t=q:w=1.2:g=2.5,deesser=i=0.3,acompressor=threshold=-20dB:ratio=3:attack=8:release=120:makeup=2';
+  const vfx = sb.voice_fx ? (sb.voice_fx === true ? VOICE_FX : sb.voice_fx) + ',' : '';
+  const vspeed = sb.voice_speed && sb.voice_speed !== 1 ? `atempo=${sb.voice_speed},` : '';
+  if (voicePath) { inputs.push('-i', voicePath); filters.push(`[${idx}:a]${vspeed}${vfx}aresample=48000,adelay=${Math.round(((sb.voice_offset || 0) - t0) * 1000)}|${Math.round(((sb.voice_offset || 0) - t0) * 1000)},apad[v]`); idx++; }
   const sfxList = [];
   for (const sc of sb.scenes) if (sc.sfx) for (const name of [].concat(sc.sfx)) {
     const f = path.join(ENGINE, 'sfx', name + '.wav'); if (fs.existsSync(f)) sfxList.push({ f, at: sc.start + (sc.sfx_at || 0), gain: sc.sfx_gain ?? sb.sfx_gain ?? -10 });
