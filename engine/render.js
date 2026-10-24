@@ -84,7 +84,9 @@ sb.captions = sb.captions_off ? [] : caps;
 sb.captions_off_at = last.type === 'endcard' ? last.start : null;
 
 // ---- media paths
-for (const sc of sb.scenes) if (sc.src) sc.src = 'file://' + rel(sc.src);
+const fixSrc = o => { if (Array.isArray(o)) return o.forEach(fixSrc); if (o && typeof o === 'object') for (const k of Object.keys(o)) {
+  if ((k === 'src' || k === 'basemap') && typeof o[k] === 'string' && !/^(https?:|file:|data:)/.test(o[k])) o[k] = 'file://' + rel(o[k]); else fixSrc(o[k]); } };
+sb.scenes.forEach(fixSrc);
 
 (async () => {
   const browser = await chromium.launch();

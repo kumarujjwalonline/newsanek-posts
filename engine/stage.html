@@ -32,7 +32,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--bg);color:
 body.theme-satire .card{background:#fff;border:6px solid #111;box-shadow:10px 10px 0 #111}
 .lbl{font:700 40px var(--body);color:var(--muted)}
 .num{font-family:var(--num);font-weight:900}
-#logo,#logoW{position:absolute;left:54px;top:52px;width:220px;opacity:.96}
+#logo,#logoW,#logoB{position:absolute;left:54px;top:52px;width:220px;opacity:.96}
 #tags{position:absolute;right:54px;top:62px;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .tag{font:800 26px var(--body);letter-spacing:1.5px;padding:6px 14px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;border:2px solid rgba(255,255,255,.5)}
 .tag.sat{background:var(--red);border-color:var(--red)}
@@ -44,6 +44,7 @@ body.theme-satire #caps .box{background:#111}
 #caps .cw.on{color:#FFD400}
 #scenelabel{position:absolute;left:70px;right:70px;top:1236px}
 #flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#grain{position:absolute;left:-200px;top:-200px;width:1480px;height:2320px;background:url(textures/paper_light.jpg) 0 0/540px 960px;mix-blend-mode:overlay;opacity:0;pointer-events:none}
 .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.045) 2px,transparent 2px);background-size:90px 90px}
 .stripes{position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0 22px,transparent 22px 64px)}
 .halftone{position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.13) 3px,transparent 3.5px);background-size:26px 26px}
@@ -63,8 +64,8 @@ body.theme-satire #caps .box{background:#111}
 </head>
 <body>
 <div id="stage"><div id="bgdeco"></div><div id="scenes"></div>
-<img id="logo" src="assets/logo_white.png"><img id="logoW" src="assets/logo_white.png" style="display:none"><div id="tags"></div><div id="progress"></div>
-<div id="caps"></div><div id="flash"></div></div>
+<img id="logo" src="assets/logo_white.png"><img id="logoW" src="assets/logo_white.png" style="display:none"><img id="logoB" src="assets/logo_black.png" style="display:none"><div id="tags"></div><div id="progress"></div>
+<div id="caps"></div><div id="grain"></div><div id="flash"></div></div>
 <script>
 // ---------- helpers
 const W=1080,H=1920;
@@ -227,13 +228,15 @@ let SB=null,scenes=[],capChunks=[],totalDur=0;
 window.setup=async function(sb){SB=sb;document.body.className='theme-'+(sb.theme||'explainer');totalDur=sb.duration;
   const deco=document.getElementById('bgdeco');({explainer:['grid-bg','vign'],opinion:['stripes','vign'],textfirst:['vign'],data:['grid-bg','vign'],satire:['halftone'],behind:['paper']}[sb.theme||'explainer']||[]).forEach(c=>el('div',c,deco));
   if(sb.theme==='satire')document.getElementById('logo').src='assets/logo_black.png';
+  if(sb.texture){const b=el('div','abs',deco,{inset:0,background:`url(textures/${sb.texture}.jpg) center/cover`});deco.prepend(b)}
+  if(sb.grain)document.getElementById('grain').style.opacity=sb.grain===true?.18:sb.grain;
   const tags=document.getElementById('tags');(sb.tags||[]).forEach(t=>{const d=el('div','tag'+(/SATIRE|व्यंग्य/.test(t)?' sat':''),tags);d.textContent=t});
   const holder=document.getElementById('scenes');
   for(const sc of sb.scenes){const root=el('div','scene',holder);
     if(sc.bg)root.style.background=sc.bg;
     const inner=el('div','abs',root,{left:0,top:0,width:W+'px',height:H+'px'});
     const fn=(S[sc.type]||S.headline)(sc,inner);
-    if(sc.y===undefined&&!['image','video','panel','map','endcard','headline','bignumber'].includes(sc.type)){ // centre content in the safe zone 220..1260
+    if(sc.y===undefined&&!['image','video','panel','map','endcard','headline','bignumber','photo','screenshot','collage','mapcam','paperhead'].includes(sc.type)){ // centre content in the safe zone 220..1260
       root.style.display='block';let top=1e9,bot=-1e9;for(const c of inner.children){const r=c.getBoundingClientRect();if(r.height>0){top=Math.min(top,r.top);bot=Math.max(bot,r.bottom)}}
       root.style.display='none';if(bot>top){const dy=Math.max(220-top,Math.min(1240-bot,(220+1240)/2-(top+bot)/2));inner.style.top=dy+'px'}}
     if(sc.source){const s=el('div','src',root);s.textContent='स्रोत: '+sc.source}
@@ -245,15 +248,18 @@ window.setup=async function(sb){SB=sb;document.body.className='theme-'+(sb.theme
   return {scenes:scenes.length,fontsOk:document.fonts.check('800 40px Baloo')&&document.fonts.check('800 40px Mukta')}};
 window.renderAt=async function(t){
   const XF=SB.xfade??0.12;let flash=0;
-  for(const s of scenes){const a=s.sc.start,b=s.sc.end;const vis=t>=a-0.0001&&t<b+XF;s.root.style.display=vis?'block':'none';
-    if(!vis)continue;const lt=t-a,d=b-a;let op=1;if(t>b)op=1-(t-b)/XF;s.root.style.opacity=op;
+  for(let si=0;si<scenes.length;si++){const s=scenes[si];const a=s.sc.start,b=s.sc.end;const nx=scenes[si+1];const nt=nx&&nx.sc.transition?(nx.sc.transition_dur||.45):0;
+    const vis=t>=a-0.0001&&t<b+Math.max(XF,nt);s.root.style.display=vis?'block':'none';
+    if(!vis)continue;const lt=t-a,d=b-a;let op=1;if(t>b&&!nt)op=1-(t-b)/XF;s.root.style.opacity=op;
+    if(s.sc.transition){const td=s.sc.transition_dur||.45;s.root.style.clipPath=lt<td?window.VOX_TRANSITION(s.sc.transition,lt/td):'none';s.root.style.zIndex=2}else s.root.style.zIndex=1;
     s.fn(Math.max(0,lt),d);
     if(s.fn.video){const v=s.fn.video;const want=s.fn.offset+Math.max(0,lt)*s.fn.rate;if(Math.abs(v.currentTime-want)>0.001){await new Promise(r=>{v.onseeked=r;v.currentTime=Math.min(want,(v.duration||want)-0.05)})}}
     if(s.sc.flash&&lt<0.12)flash=Math.max(flash,1-lt/0.12)}
   let cur=null;for(const s of scenes){if(t>=s.sc.start&&t<s.sc.end)cur=s.sc}
-  const dark=cur&&(cur.logo==='white'||(cur.logo!=='theme'&&['image','video'].includes(cur.type)));
-  document.getElementById('logo').style.display=dark?'none':'block';document.getElementById('logoW').style.display=dark?'block':'none';
+  const lk=!cur||cur.logo==='theme'?'theme':cur.logo==='white'||['image','video','photo','screenshot','collage','mapcam'].includes(cur.type)?'white':cur.logo==='black'||cur.type==='paperhead'?'black':'theme';
+  document.getElementById('logo').style.display=lk==='theme'?'block':'none';document.getElementById('logoW').style.display=lk==='white'?'block':'none';document.getElementById('logoB').style.display=lk==='black'?'block':'none';
   document.getElementById('flash').style.opacity=flash*0.55;
+  if(SB.grain){const gr=document.getElementById('grain');const f=Math.floor(t*12);gr.style.transform=`translate(${(f*137)%200}px,${(f*91)%200}px)`}
   document.getElementById('progress').style.width=(W*clamp(t/totalDur))+'px';
   // captions
   const cap=document.getElementById('caps');let ch=null;for(const c of capChunks){if(t>=c.start&&t<c.end){ch=c;break}}
@@ -263,4 +269,5 @@ window.renderAt=async function(t){
     const spans=cap.querySelectorAll('.cw');ch.words.forEach((w,i)=>spans[i].classList.toggle('on',t>=w.start&&t<w.end+0.05))}
   return true};
 </script>
+<script src="vox.js"></script>
 </body></html>
