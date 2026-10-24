@@ -40,8 +40,12 @@ blacks = re.findall(r'black_start:([\d.]+) black_end:([\d.]+)', bd)
 check('no black segments ≥0.4s', not blacks, blacks or 'none')
 # frozen video (>2.5 s identical)
 fz = run(['ffmpeg', '-hide_banner', '-i', V, '-vf', 'freezedetect=n=0.001:d=2.5', '-an', '-f', 'null', '-']).stderr
-fr_ = re.findall(r'freeze_start: ([\d.]+)', fz)
-check('no frozen picture ≥2.5s', not fr_, fr_ or 'none', critical=False)
+fr_ = [float(x) for x in re.findall(r'freeze_start: ([\d.]+)', fz)]
+tim_ = os.path.splitext(V)[0] + '_timing.txt'  # a still end card is expected: ignore freezes that start inside it
+if os.path.exists(tim_):
+    ec = re.findall(r'^endcard\s+([\d.]+)–', open(tim_).read(), re.M)
+    if ec: fr_ = [x for x in fr_ if x < float(ec[0]) - 0.3]
+check('no frozen picture ≥2.5s (end card excluded)', not fr_, fr_ or 'none', critical=False)
 # loudness + silence
 if au:
     eb = run(['ffmpeg', '-hide_banner', '-i', V, '-af', 'ebur128=peak=true', '-vn', '-f', 'null', '-']).stderr

@@ -26,7 +26,7 @@ let words = [];
 if (sb.words) {
   const raw = JSON.parse(fs.readFileSync(rel(sb.words), 'utf8'));
   const list = Array.isArray(raw) ? raw : (raw.words || (raw.transcripts && raw.transcripts[0].words) || []);
-  words = list.filter(w => (w.type || 'word') === 'word' && !/^\[.*\]$/.test(w.text.trim()))
+  words = list.filter(w => (w.type || 'word') === 'word' && !/^\[.*\]$/.test(w.text.trim()) && !/^[—–\-…।,.!?]+$/.test(w.text.trim()))
               .map(w => ({ text: w.text.trim(), start: Number(w.start), end: Number(w.end) }));
 }
 const voicePath = sb.voice ? rel(sb.voice) : null;
