@@ -1,0 +1,725 @@
+{
+ "content_id": "NA-20261024-01",
+ "version": "v2",
+ "theme": "explainer",
+ "voice": "NA-20261024-01_A2_voice.mp3",
+ "words": "NA-20261024-01_A2_words.json",
+ "music": "auto",
+ "music_gain": -21,
+ "sfx_gain": -11,
+ "voice_fx": true,
+ "grain": 0.16,
+ "lead": 0.08,
+ "scenes": [
+  {
+   "id": "v01",
+   "type": "photo",
+   "cue": "सऊदी अरब पर",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/riyadh_kafd.jpg",
+   "move": "in",
+   "place": "RIYADH · SAUDI ARABIA",
+   "text": "सऊदी पर *ड्रोन हमले*",
+   "credit": "Photo: B.alotaby / CC BY-SA 4.0",
+   "sfx": "impact",
+   "flash": true
+  },
+  {
+   "id": "v02",
+   "type": "screenshot",
+   "cue": "और इसी हफ़्ते",
+   "transition": "wipe-left",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/shot_thenational.png",
+   "img_w": 2400,
+   "img_h": 3000,
+   "crop": {
+    "x": 380,
+    "y": 1250,
+    "w": 1610,
+    "h": 1000
+   },
+   "outlet": "The National",
+   "date": "23 Oct 2026",
+   "zoom": {
+    "at": 0.9,
+    "dur": 0.9,
+    "x": 420,
+    "y": 1270,
+    "w": 1540,
+    "h": 380
+   },
+   "highlights": [
+    {
+     "x": 1600,
+     "y": 1290,
+     "w": 186,
+     "h": 100,
+     "at": 2.2,
+     "dur": 0.4
+    }
+   ],
+   "sfx": "swish"
+  },
+  {
+   "id": "v03",
+   "type": "mapcam",
+   "cue": "Yemen के Houthi",
+   "transition": "circle",
+   "basemap": "/home/claude/newsanek-posts/engine/maps/gibs_world_8192.jpg",
+   "basemaps": [
+    {
+     "src": "/home/claude/newsanek-posts/engine/maps/gibs_mideast_india.jpg",
+     "bbox": [
+      30,
+      0,
+      90,
+      36
+     ]
+    }
+   ],
+   "cam": [
+    {
+     "at": 0,
+     "center": [
+      50,
+      22
+     ],
+     "zoom": 2.2
+    },
+    {
+     "at": 1.8,
+     "center": [
+      45,
+      16
+     ],
+     "zoom": 4.6
+    }
+   ],
+   "highlight": [
+    {
+     "name": "yemen",
+     "at": 0.4,
+     "opacity": 0.5
+    }
+   ],
+   "pins": [
+    {
+     "lon": 44.2,
+     "lat": 15.35,
+     "label": "सना (Houthi)",
+     "at": 0.9
+    }
+   ],
+   "labels": [
+    {
+     "lon": 38.3,
+     "lat": 20.5,
+     "text": "RED SEA",
+     "style": "sea",
+     "at": 1.2
+    }
+   ],
+   "title": "Yemen के *Houthi*",
+   "sfx": "whoosh"
+  },
+  {
+   "id": "v04",
+   "type": "photo",
+   "cue": "Bab el-Mandeb तक",
+   "transition": "wipe-up",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/babelmandeb_space.jpg",
+   "move": "out",
+   "place": "BAB EL-MANDEB · अंतरिक्ष से",
+   "text": "Red Sea का *दरवाज़ा*",
+   "credit": "Photo: Earth Science and Remote Sensing Unit, NASA Johnson Space Center (Public domain)",
+   "sfx": "pulse"
+  },
+  {
+   "id": "v05",
+   "type": "mapcam",
+   "cue": "अब उन्होंने",
+   "transition": "diagonal",
+   "basemap": "/home/claude/newsanek-posts/engine/maps/gibs_world_8192.jpg",
+   "basemaps": [
+    {
+     "src": "/home/claude/newsanek-posts/engine/maps/gibs_mideast_india.jpg",
+     "bbox": [
+      30,
+      0,
+      90,
+      36
+     ]
+    }
+   ],
+   "cam": [
+    {
+     "at": 0,
+     "center": [
+      44,
+      20.5
+     ],
+     "zoom": 3.4
+    },
+    {
+     "at": 2.4,
+     "center": [
+      45,
+      21.5
+     ],
+     "zoom": 3.8
+    }
+   ],
+   "highlight": [
+    {
+     "name": "saudi arabia",
+     "at": 0.1,
+     "opacity": 0.25
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       44.2,
+       15.35
+      ],
+      [
+       46.7,
+       24.7
+      ]
+     ],
+     "at": 0.4,
+     "dur": 0.5,
+     "color": "#E11D2E",
+     "bend": 0.12
+    },
+    {
+     "points": [
+      [
+       44.2,
+       15.35
+      ],
+      [
+       38.06,
+       24.09
+      ]
+     ],
+     "at": 1.0,
+     "dur": 0.5,
+     "color": "#E11D2E",
+     "bend": -0.12
+    },
+    {
+     "points": [
+      [
+       44.2,
+       15.35
+      ],
+      [
+       49.98,
+       26.47
+      ]
+     ],
+     "at": 1.6,
+     "dur": 0.6,
+     "color": "#E11D2E",
+     "bend": 0.15
+    }
+   ],
+   "pins": [
+    {
+     "lon": 46.7,
+     "lat": 24.7,
+     "label": "Riyadh",
+     "at": 0.85
+    },
+    {
+     "lon": 38.06,
+     "lat": 24.09,
+     "label": "Yanbu",
+     "at": 1.45,
+     "side": "left"
+    },
+    {
+     "lon": 49.98,
+     "lat": 26.47,
+     "label": "Dammam",
+     "at": 2.1,
+     "side": "left"
+    },
+    {
+     "lon": 44.2,
+     "lat": 15.35,
+     "label": "Houthi",
+     "at": 0.1,
+     "color": "#111"
+    }
+   ],
+   "title": "Houthi का *दावा*",
+   "sfx": "pop"
+  },
+  {
+   "id": "v06",
+   "type": "screenshot",
+   "cue": "हमलों का दावा",
+   "transition": "wipe-right",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/shot_mee.png",
+   "img_w": 2400,
+   "img_h": 3000,
+   "crop": {
+    "x": 200,
+    "y": 470,
+    "w": 1700,
+    "h": 370
+   },
+   "outlet": "Middle East Eye",
+   "date": "22 Oct 2026",
+   "highlights": [
+    {
+     "x": 228,
+     "y": 572,
+     "w": 1640,
+     "h": 84,
+     "at": 0.25,
+     "dur": 0.5
+    }
+   ]
+  },
+  {
+   "id": "v07",
+   "type": "photo",
+   "cue": "Dammam airport पर",
+   "transition": "wipe-left",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/dammam_airport.jpg",
+   "move": "up",
+   "place": "KING FAHD AIRPORT · DAMMAM",
+   "credit": "Photo: Ashashyou / CC BY-SA 4.0",
+   "text": "Dammam *airport*"
+  },
+  {
+   "id": "v08",
+   "type": "screenshot",
+   "cue": "भारतीय की",
+   "transition": "wipe-up",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/shot_aljazeera.png",
+   "img_w": 2400,
+   "img_h": 3000,
+   "crop": {
+    "x": 20,
+    "y": 2170,
+    "w": 1560,
+    "h": 190
+   },
+   "outlet": "Al Jazeera",
+   "date": "22 Oct 2026",
+   "highlights": [
+    {
+     "x": 515,
+     "y": 2290,
+     "w": 290,
+     "h": 48,
+     "at": 0.65,
+     "dur": 0.35
+    }
+   ],
+   "zoom": {
+    "at": 0.1,
+    "dur": 0.5,
+    "x": 20,
+    "y": 2280,
+    "w": 820,
+    "h": 70
+   }
+  },
+  {
+   "id": "v09",
+   "type": "collage",
+   "cue": "Aramco को अपना",
+   "transition": "circle",
+   "items": [
+    {
+     "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/aramco_core.jpg",
+     "x": 110,
+     "y": 330,
+     "w": 760,
+     "ratio": 0.67,
+     "rot": -3,
+     "at": 0.0,
+     "tape": true,
+     "caption": "Aramco · Dhahran"
+    },
+    {
+     "kind": "note",
+     "text": "Headquarter *खाली* कराया",
+     "x": 230,
+     "y": 930,
+     "w": 620,
+     "rot": 2,
+     "at": 0.9,
+     "size": 58
+    },
+    {
+     "kind": "stamp",
+     "text": "EVACUATED",
+     "x": 560,
+     "y": 300,
+     "w": 420,
+     "rot": 8,
+     "at": 1.4,
+     "size": 54
+    }
+   ],
+   "credit": "Photo: Eagleamn (Public domain) · Reuters, 22 Oct",
+   "sfx": "swish"
+  },
+  {
+   "id": "v10",
+   "type": "screenshot",
+   "cue": "तेईस October को",
+   "transition": "blinds",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/shot_thenational.png",
+   "img_w": 2400,
+   "img_h": 3000,
+   "crop": {
+    "x": 400,
+    "y": 2160,
+    "w": 1560,
+    "h": 420
+   },
+   "outlet": "The National",
+   "date": "23 Oct 2026",
+   "highlights": [
+    {
+     "x": 436,
+     "y": 2378,
+     "w": 860,
+     "h": 60,
+     "at": 2.2,
+     "dur": 0.5
+    }
+   ],
+   "zoom": {
+    "at": 1.2,
+    "dur": 0.9,
+    "x": 420,
+    "y": 2330,
+    "w": 1000,
+    "h": 160
+   },
+   "sfx": "click"
+  },
+  {
+   "id": "v11",
+   "type": "mapcam",
+   "cue": "भारत अपना लगभग",
+   "transition": "wipe-left",
+   "basemap": "/home/claude/newsanek-posts/engine/maps/gibs_world_8192.jpg",
+   "basemaps": [
+    {
+     "src": "/home/claude/newsanek-posts/engine/maps/gibs_mideast_india.jpg",
+     "bbox": [
+      30,
+      0,
+      90,
+      36
+     ]
+    }
+   ],
+   "cam": [
+    {
+     "at": 0,
+     "center": [
+      52,
+      19
+     ],
+     "zoom": 3.0
+    },
+    {
+     "at": 2.6,
+     "center": [
+      62,
+      20
+     ],
+     "zoom": 2.4
+    }
+   ],
+   "highlight": [
+    {
+     "name": "india",
+     "at": 0.2,
+     "opacity": 0.4
+    }
+   ],
+   "routes": [
+    {
+     "points": [
+      [
+       50.2,
+       26.6
+      ],
+      [
+       56.4,
+       26.3
+      ],
+      [
+       60,
+       23.5
+      ],
+      [
+       69.6,
+       22.5
+      ]
+     ],
+     "bend": 0,
+     "at": 0.3,
+     "dur": 1.6,
+     "color": "#FFD400",
+     "keep_head": true
+    },
+    {
+     "points": [
+      [
+       43.4,
+       12.6
+      ],
+      [
+       51,
+       12.2
+      ],
+      [
+       62,
+       15
+      ],
+      [
+       72.8,
+       18.9
+      ]
+     ],
+     "bend": 0,
+     "at": 0.8,
+     "dur": 1.6,
+     "color": "#FFD400",
+     "keep_head": true
+    }
+   ],
+   "pins": [
+    {
+     "lon": 72.8,
+     "lat": 18.9,
+     "label": "भारत: *88.7%* आयात",
+     "at": 2.0,
+     "side": "right"
+    }
+   ],
+   "title": "हर 10 में से *~9* barrel बाहर से",
+   "credit": "Map: NASA Blue Marble · आँकड़ा: पेट्रोलियम मंत्रालय, FY26 (अस्थायी)",
+   "sfx": "whoosh"
+  },
+  {
+   "id": "v12",
+   "type": "photo",
+   "cue": "इस महीने ये",
+   "transition": "diagonal",
+   "frame": "print",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/jamnagar_refinery.jpg",
+   "place": "OCTOBER · भारत का CRUDE BASKET",
+   "text": "औसत *$120.08*/barrel",
+   "credit": "File photo: Reliance Industries / CC BY-SA 4.0 · PPAC via The Hindu",
+   "sfx": "tick"
+  },
+  {
+   "type": "bars",
+   "title": "अनुमान बनाम हकीकत",
+   "items": [
+    {
+     "label": "RBI का अनुमान (H2)",
+     "value": 95
+    },
+    {
+     "label": "अक्टूबर औसत",
+     "value": 120.08,
+     "color": "#FFD400"
+    }
+   ],
+   "prefix": "$",
+   "decimals": 0,
+   "focus": 1,
+   "sfx": "click",
+   "source": "The Hindu · 24 Oct",
+   "id": "v13",
+   "cue": "RBI ने",
+   "transition": "wipe-up"
+  },
+  {
+   "id": "v14",
+   "type": "photo",
+   "cue": "असर गैस पर",
+   "transition": "circle",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/cng_maharashtra.jpg",
+   "move": "right",
+   "text": "असर *गैस* पर भी",
+   "credit": "File photo: K.Venkataramana (CC0)",
+   "sfx": "whoosh"
+  },
+  {
+   "id": "v15",
+   "type": "screenshot",
+   "cue": "Adani ने CNG",
+   "transition": "wipe-left",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/shot_deshgujarat.png",
+   "img_w": 2400,
+   "img_h": 3000,
+   "crop": {
+    "x": 300,
+    "y": 190,
+    "w": 1420,
+    "h": 450
+   },
+   "outlet": "DeshGujarat",
+   "date": "23 Oct 2026",
+   "highlights": [
+    {
+     "x": 1326,
+     "y": 240,
+     "w": 210,
+     "h": 80,
+     "at": 1.6,
+     "dur": 0.4
+    },
+    {
+     "x": 930,
+     "y": 338,
+     "w": 318,
+     "h": 74,
+     "at": 2.4,
+     "dur": 0.4
+    }
+   ],
+   "sfx": "impact"
+  },
+  {
+   "type": "compare",
+   "left": {
+    "title": "सरकारी pump",
+    "value": "बदलाव नहीं",
+    "note": "Delhi petrol ₹102.12 (23 Oct)"
+   },
+   "right": {
+    "title": "Jio-BP (11 Oct)",
+    "value": "+₹5/L",
+    "note": "diesel +₹3/L",
+    "color": "#E53935"
+   },
+   "vs": "VS",
+   "sfx": "swish",
+   "source": "Asianet Newsable, Goodreturns",
+   "id": "v16",
+   "cue": "Petrol-diesel के सरकारी",
+   "transition": "blinds"
+  },
+  {
+   "id": "v17",
+   "type": "photo",
+   "cue": "पर दबाव बढ़",
+   "transition": "wipe-right",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/tanker_yemen_sentinel.jpg",
+   "move": "in",
+   "treatment": "muted",
+   "place": "YEMEN तट · 2020 FILE IMAGE",
+   "text": "HPCL: freight लागत *दोगुनी*",
+   "credit": "Satellite (2020 file): EU Copernicus Sentinel-2 · HPCL via The Hindu, 24 Oct",
+   "sfx": "paper"
+  },
+  {
+   "id": "v18",
+   "type": "collage",
+   "cue": "Red Sea की ये",
+   "transition": "diagonal",
+   "items": [
+    {
+     "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/babelmandeb_aster.jpg",
+     "x": 140,
+     "y": 260,
+     "w": 800,
+     "ratio": 0.62,
+     "rot": -2,
+     "at": 0.0,
+     "treatment": "muted"
+    },
+    {
+     "kind": "note",
+     "text": "Houthi हमले →",
+     "x": 90,
+     "y": 330,
+     "w": 470,
+     "rot": -4,
+     "at": 0.2,
+     "size": 50
+    },
+    {
+     "kind": "note",
+     "text": "तेल *~$117* →",
+     "x": 520,
+     "y": 520,
+     "w": 470,
+     "rot": 3,
+     "at": 0.6,
+     "size": 50
+    },
+    {
+     "kind": "note",
+     "text": "आयात महँगा →",
+     "x": 90,
+     "y": 720,
+     "w": 470,
+     "rot": -2,
+     "at": 1.0,
+     "size": 50
+    },
+    {
+     "kind": "note",
+     "text": "CNG *+₹4.45*",
+     "x": 500,
+     "y": 920,
+     "w": 470,
+     "rot": 4,
+     "at": 1.4,
+     "size": 50
+    }
+   ],
+   "credit": "Satellite: NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team (Public domain)",
+   "sfx": "click"
+  },
+  {
+   "id": "v19",
+   "type": "paperhead",
+   "cue": "आपके बजट की",
+   "transition": "wipe-up",
+   "kicker": "RED SEA की जंग",
+   "text": [
+    "दूर की नहीं,",
+    "आपके *बजट* की खबर"
+   ],
+   "sfx": "impact"
+  },
+  {
+   "id": "v20",
+   "type": "photo",
+   "cue": "आपके शहर में",
+   "transition": "circle",
+   "frame": "print",
+   "src": "/home/claude/newsanek-posts/assets/NA-20261024-01/raw/cng_delhi.jpg",
+   "text": "आपके शहर में *CNG* का हाल?",
+   "credit": "File photo: Subhashish Panigrahi / CC BY-SA 3.0",
+   "sfx": "pop",
+   "size": 72
+  },
+  {
+   "type": "endcard",
+   "text": "Red Sea की जंग = *आपका बजट*",
+   "cta": "कमेंट में बताइए · Follow News Anek",
+   "hold": 2.2,
+   "id": "v21",
+   "cue": "Comment में"
+  }
+ ]
+}
