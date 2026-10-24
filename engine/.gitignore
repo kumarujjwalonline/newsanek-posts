@@ -1,0 +1,8 @@
+examples/**/*.mp4
+examples/**/*_frames/
+examples/**/*_QA.json
+examples/**/*_contact.jpg
+examples/**/*_timing.txt
+examples/**/*_silent.mp4
+examples/**/preview*/
+node_modules/

@@ -1,0 +1,9 @@
+{"content_id":"TEST-voicetest","version":"v1","theme":"explainer","voice":"voice.mp3","words":"words.json",
+ "tags":["TEST"],
+ "scenes":[
+  {"id":"s1","type":"headline","kicker":"News Anek","text":["नमस्ते!","ये *voice test* है"],"sfx":"whoosh"},
+  {"id":"s2","type":"bignumber","cue":"एक छोटा","value":60,"suffix":" सेकंड","label":"हर वीडियो की लंबाई","sfx":"tick","source":"News Anek"},
+  {"id":"s3","type":"map","cue":"अगर आपको","region":"india","highlight":["dl","mh","tn"],"pins":[],"title":"भारत","sfx":"swish"},
+  {"id":"s4","type":"bars","cue":"सुनाई दे","title":"सिस्टम चेक","items":[{"label":"आवाज़","value":100},{"label":"कैप्शन","value":100},{"label":"ग्राफ़िक्स","value":80}],"suffix":"%","sfx":"click"},
+  {"id":"s5","type":"endcard","cue":"सिस्टम तैयार","text":"सिस्टम *तैयार* है","hold":1.5,"sfx":"ding"}
+ ]}
