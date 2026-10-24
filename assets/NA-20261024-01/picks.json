@@ -1,0 +1,76 @@
+{
+ "riyadh_kafd.jpg": {
+  "kind": "commons",
+  "title": "File:Riyadh Skyline showing the King Abdullah Financial District (KAFD) and the famous Kingdom Tower .jpg"
+ },
+ "babelmandeb_space.jpg": {
+  "kind": "commons",
+  "title": "File:Bab-el-Mandeb, outer space.jpg"
+ },
+ "babelmandeb_aster.jpg": {
+  "kind": "commons",
+  "title": "File:Bab-el-Mandeb Strait, Africa-Arabia (ASTER).jpg"
+ },
+ "dammam_airport.jpg": {
+  "kind": "commons",
+  "title": "File:King Fahd Airport.jpg"
+ },
+ "aramco_core.jpg": {
+  "kind": "commons",
+  "title": "File:AramcoCoreArea.jpg"
+ },
+ "cng_maharashtra.jpg": {
+  "kind": "commons",
+  "title": "File:Compressed Natural Gas (CNG) Filling Station, Maharastra, India (1).jpg"
+ },
+ "cng_delhi.jpg": {
+  "kind": "commons",
+  "title": "File:CNG filling station, Delhi.JPG"
+ },
+ "tanker_yemen_sentinel.jpg": {
+  "kind": "commons",
+  "title": "File:Oil tanker off of the Yemen coast (oil-tanker-yemen-coast).jpg"
+ },
+ "jamnagar_refinery.jpg": {
+  "kind": "commons",
+  "title": "File:Jamnagar Refinery.jpg"
+ },
+ "shot_thenational.png": {
+  "kind": "screenshot",
+  "url": "https://www.thenationalnews.com/business/energy/2026/10/23/oil-prices-rise-as-houthis-launch-another-wave-of-attacks-on-saudi-arabia/",
+  "note": "The National, 23 Oct 2026: 'Oil hits six-month high at $117' headline and paragraph"
+ },
+ "shot_deshgujarat.png": {
+  "kind": "screenshot",
+  "url": "https://deshgujarat.com/2026/10/23/adani-cng-price-hiked-by-%E2%82%B94-45-per-kg-rate-reaches-%E2%82%B998-47-in-ahmedabad/",
+  "note": "DeshGujarat, 23 Oct 2026: Adani CNG +₹4.45/kg headline (photo below headline not shown)"
+ },
+ "shot_mee.png": {
+  "kind": "screenshot",
+  "url": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-claim-attacks-saudi-defence-ministry-aramco-facilities-and",
+  "note": "Middle East Eye, 22 Oct 2026: 'Houthis claim attacks' headline (photo not shown)"
+ },
+ "shot_aljazeera.png": {
+  "kind": "screenshot",
+  "url": "https://www.aljazeera.com/news/2026/10/22/one-killed-eight-injured-in-attack-on-saudi-arabias-king-fahd-airport-2",
+  "note": "Al Jazeera, 22 Oct 2026: GACA paragraph 'a Saudi national and an Indian resident' (Reuters photo not shown)"
+ },
+ "gibs_world_8192.jpg": {
+  "kind": "map",
+  "type": "map",
+  "source": "https://gibs.earthdata.nasa.gov (layer BlueMarble_ShadedRelief_Bathymetry, whole world)",
+  "licence": "Public domain (NASA)",
+  "author": "NASA Blue Marble via NASA GIBS",
+  "credit": "Map: NASA Blue Marble / Natural Earth",
+  "note": "Satellite basemap, whole world 8192x4096 (engine/maps)"
+ },
+ "gibs_mideast_india.jpg": {
+  "kind": "map",
+  "type": "map",
+  "source": "https://gibs.earthdata.nasa.gov (layer BlueMarble_ShadedRelief_Bathymetry, bbox 30E-90E, 0-36N)",
+  "licence": "Public domain (NASA)",
+  "author": "NASA Blue Marble via NASA GIBS",
+  "credit": "Map: NASA Blue Marble / Natural Earth",
+  "note": "Satellite basemap tile, Red Sea to India 6000x3600 (engine/maps)"
+ }
+}

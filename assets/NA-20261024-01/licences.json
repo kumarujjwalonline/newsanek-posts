@@ -1,0 +1,152 @@
+[
+ {
+  "file": "aramco_core.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:AramcoCoreArea.jpg",
+  "licence": "Public domain · Wikimedia Commons · File:AramcoCoreArea.jpg",
+  "author": "Eagleamn",
+  "credit": "Photo: Eagleamn (Public domain)",
+  "description": "Saudi Aramco's core area which includes the headquarters and office buildings in Dhahran city.\nThe buildings which appear in this picture are the Al Mujamma Mosque (foreground), Administration buildin",
+  "asset_id": "NA-20261024-01-AS01"
+ },
+ {
+  "file": "babelmandeb_aster.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Bab-el-Mandeb_Strait,_Africa-Arabia_(ASTER).jpg",
+  "licence": "Public domain · Wikimedia Commons · File:Bab-el-Mandeb Strait, Africa-Arabia (ASTER).jpg",
+  "author": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
+  "credit": "Photo: NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team (Public domain)",
+  "description": "The Bab-el-Mandeb, Gate of Tears, strait connects the Red Sea to the Gulf of Aden, and separates Yemen on the Arabian Peninsula and Djibouti and Eritrea in the Horn of Africa. It is a strategic link b",
+  "asset_id": "NA-20261024-01-AS02"
+ },
+ {
+  "file": "babelmandeb_space.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Bab-el-Mandeb,_outer_space.jpg",
+  "licence": "Public domain · Wikimedia Commons · File:Bab-el-Mandeb, outer space.jpg",
+  "author": "Earth Science and Remote Sensing Unit, NASA Johnson Space Center",
+  "credit": "Photo: Earth Science and Remote Sensing Unit, NASA Johnson Space Center (Public domain)",
+  "description": "Photo of the Bab-el-Mandeb (the strait between the Red Sea and the Gulf of Aden), taken from outer space during ISS Expedition 62.",
+  "asset_id": "NA-20261024-01-AS03"
+ },
+ {
+  "file": "cng_delhi.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:CNG_filling_station,_Delhi.JPG",
+  "licence": "CC BY-SA 3.0 · Wikimedia Commons · File:CNG filling station, Delhi.JPG",
+  "author": "Subhashish Panigrahi",
+  "credit": "Photo: Subhashish Panigrahi / CC BY-SA 3.0",
+  "description": "CNG filling station, Delhi",
+  "asset_id": "NA-20261024-01-AS04"
+ },
+ {
+  "file": "cng_maharashtra.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Compressed_Natural_Gas_(CNG)_Filling_Station,_Maharastra,_India_(1).jpg",
+  "licence": "CC0 · Wikimedia Commons · File:Compressed Natural Gas (CNG) Filling Station, Maharastra, India (1).jpg",
+  "author": "K.Venkataramana",
+  "credit": "Photo: K.Venkataramana (CC0)",
+  "description": "Compressed Natural Gas (CNG) Filling Station, Maharastra, India",
+  "asset_id": "NA-20261024-01-AS05"
+ },
+ {
+  "file": "dammam_airport.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:King_Fahd_Airport.jpg",
+  "licence": "CC BY-SA 4.0 · Wikimedia Commons · File:King Fahd Airport.jpg",
+  "author": "Ashashyou",
+  "credit": "Photo: Ashashyou / CC BY-SA 4.0",
+  "description": "Dammam",
+  "asset_id": "NA-20261024-01-AS06"
+ },
+ {
+  "file": "gibs_mideast_india.jpg",
+  "type": "map",
+  "source": "https://gibs.earthdata.nasa.gov (layer BlueMarble_ShadedRelief_Bathymetry, bbox 30E-90E, 0-36N)",
+  "licence": "Public domain (NASA)",
+  "author": "NASA Blue Marble via NASA GIBS",
+  "credit": "Map: NASA Blue Marble / Natural Earth",
+  "description": "Satellite basemap tile, Red Sea to India 6000x3600 (engine/maps)",
+  "asset_id": "NA-20261024-01-AS07"
+ },
+ {
+  "file": "gibs_world_8192.jpg",
+  "type": "map",
+  "source": "https://gibs.earthdata.nasa.gov (layer BlueMarble_ShadedRelief_Bathymetry, whole world)",
+  "licence": "Public domain (NASA)",
+  "author": "NASA Blue Marble via NASA GIBS",
+  "credit": "Map: NASA Blue Marble / Natural Earth",
+  "description": "Satellite basemap, whole world 8192x4096 (engine/maps)",
+  "asset_id": "NA-20261024-01-AS08"
+ },
+ {
+  "file": "jamnagar_refinery.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Jamnagar_Refinery.jpg",
+  "licence": "CC BY-SA 4.0 · Wikimedia Commons · File:Jamnagar Refinery.jpg",
+  "author": "Reliance Industries",
+  "credit": "Photo: Reliance Industries / CC BY-SA 4.0",
+  "description": "Jamnagar Refinery at night",
+  "asset_id": "NA-20261024-01-AS09"
+ },
+ {
+  "file": "riyadh_kafd.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Riyadh_Skyline_showing_the_King_Abdullah_Financial_District_(KAFD)_and_the_famous_Kingdom_Tower_.jpg",
+  "licence": "CC BY-SA 4.0 · Wikimedia Commons · File:Riyadh Skyline showing the King Abdullah Financial District (KAFD) and the famous Kingdom Tower .jpg",
+  "author": "B.alotaby",
+  "credit": "Photo: B.alotaby / CC BY-SA 4.0",
+  "description": "Riyadh Skyline showing the King Abdullah Financial District (KAFD) and the famous Kingdom Tower",
+  "asset_id": "NA-20261024-01-AS10"
+ },
+ {
+  "file": "shot_aljazeera.png",
+  "type": "screenshot",
+  "source": "https://www.aljazeera.com/news/2026/10/22/one-killed-eight-injured-in-attack-on-saudi-arabias-king-fahd-airport-2",
+  "licence": "Editorial reference (credited screenshot of headline/text only; embedded press photos excluded)",
+  "author": "aljazeera.com",
+  "credit": "स्क्रीनशॉट: aljazeera.com",
+  "description": "Al Jazeera, 22 Oct 2026: GACA paragraph 'a Saudi national and an Indian resident' (Reuters photo not shown)",
+  "asset_id": "NA-20261024-01-AS11"
+ },
+ {
+  "file": "shot_deshgujarat.png",
+  "type": "screenshot",
+  "source": "https://deshgujarat.com/2026/10/23/adani-cng-price-hiked-by-%E2%82%B94-45-per-kg-rate-reaches-%E2%82%B998-47-in-ahmedabad/",
+  "licence": "Editorial reference (credited screenshot of headline/text only; embedded press photos excluded)",
+  "author": "deshgujarat.com",
+  "credit": "स्क्रीनशॉट: deshgujarat.com",
+  "description": "DeshGujarat, 23 Oct 2026: Adani CNG +₹4.45/kg headline (photo below headline not shown)",
+  "asset_id": "NA-20261024-01-AS12"
+ },
+ {
+  "file": "shot_mee.png",
+  "type": "screenshot",
+  "source": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-claim-attacks-saudi-defence-ministry-aramco-facilities-and",
+  "licence": "Editorial reference (credited screenshot of headline/text only; embedded press photos excluded)",
+  "author": "middleeasteye.net",
+  "credit": "स्क्रीनशॉट: middleeasteye.net",
+  "description": "Middle East Eye, 22 Oct 2026: 'Houthis claim attacks' headline (photo not shown)",
+  "asset_id": "NA-20261024-01-AS13"
+ },
+ {
+  "file": "shot_thenational.png",
+  "type": "screenshot",
+  "source": "https://www.thenationalnews.com/business/energy/2026/10/23/oil-prices-rise-as-houthis-launch-another-wave-of-attacks-on-saudi-arabia/",
+  "licence": "Editorial reference (credited screenshot of headline/text only; embedded press photos excluded)",
+  "author": "thenationalnews.com",
+  "credit": "स्क्रीनशॉट: thenationalnews.com",
+  "description": "The National, 23 Oct 2026: 'Oil hits six-month high at $117' headline and paragraph",
+  "asset_id": "NA-20261024-01-AS14"
+ },
+ {
+  "file": "tanker_yemen_sentinel.jpg",
+  "type": "photo",
+  "source": "https://commons.wikimedia.org/wiki/File:Oil_tanker_off_of_the_Yemen_coast_(oil-tanker-yemen-coast).jpg",
+  "licence": "Attribution · Wikimedia Commons · File:Oil tanker off of the Yemen coast (oil-tanker-yemen-coast).jpg",
+  "author": "European Union , Copernicus Sentinel-2  imagery",
+  "credit": "Photo: European Union , Copernicus Sentinel-2  imagery / Attribution",
+  "description": "On 15 July 2020, the United Nations warned that an abandoned oil storage and offloading tanker, the FSO Safer, moored off the coast of Yemen and laden with more than 1 million barrels of crude oil, is",
+  "asset_id": "NA-20261024-01-AS15"
+ }
+]
